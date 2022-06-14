@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class RouletteRotator : MonoBehaviour
 {
+    public TextMesh textTop;
     public  Animator anim;
     //Ruleta 1: Gameobject graficos + collider
     [SerializeField]GameObject roulette0;
@@ -113,10 +114,9 @@ public class RouletteRotator : MonoBehaviour
     {
         rotating = false;
         stopSpin = false;
-        anim.SetTrigger("StopSpin");
         CheckCollision = true;
         Invoke("CheckCollisionFalse",0.5f);
-        Invoke("PrintNumber", 0.5f);
+        Invoke("PrintNumber", 1.2f);
     }
 
     void CheckCollisionFalse()
@@ -144,6 +144,13 @@ public class RouletteRotator : MonoBehaviour
 
     public void PrintNumber()
     {
-        Debug.Log(ball1 + "," + ball2 + "," + ball3 + "," + ball4);
+        textTop.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+        Invoke("PrintSpin4Win", 3f);
     }
+    public void PrintSpin4Win()
+    {
+        textTop.text = "SPIN 4 WIN";
+        anim.SetTrigger("StopSpin");
+    }
+
 }
