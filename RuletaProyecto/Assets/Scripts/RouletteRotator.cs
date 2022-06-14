@@ -4,9 +4,8 @@ public class RouletteRotator : MonoBehaviour
     public TextMesh textTop;
     public Animator anim;
     //Ruleta 1: Gameobject graficos + collider
-    [SerializeField] GameObject falseRoulette0;
+    
     [SerializeField] GameObject roulette0;
-    MeshRenderer roulette0MR;
     [SerializeField] GameObject roulette0Collider;
 
     //Ruleta 2: Gameobject graficos + collider
@@ -41,10 +40,7 @@ public class RouletteRotator : MonoBehaviour
     int ball1, ball2, ball3, ball4;
     float greaterNumber;
     public bool CheckCollision { get => checkCollision; set => checkCollision = value; }
-    private void Awake()
-    {
-        roulette0MR = roulette0.GetComponent<MeshRenderer>();
-    }
+
     private void Start()
     {
         Invoke("ZoomIn", 2f);
@@ -91,16 +87,12 @@ public class RouletteRotator : MonoBehaviour
             {
                 //RULETA 1
                 zRotation[0] = Mathf.Lerp(zRotation[0], zAngle[0], velocityLerpStart * Time.deltaTime);
-                roulette0MR.enabled = false;
                 roulette0.transform.Rotate(0, 0, zRotation[0], Space.World);
                 roulette0Collider.transform.Rotate(0, 0, zRotation[0], Space.World);
-                falseRoulette0.transform.Rotate(0, 0, zAngle[0], Space.World);
 
             }
             else
             {
-                roulette0MR.enabled = true;
-                falseRoulette0.SetActive(false);
                 zRotation[0] = Mathf.Lerp(zRotation[0], 0, velocityLerp * Time.deltaTime);
                 roulette0.transform.Rotate(0, 0, zRotation[0], Space.World);
                 roulette0Collider.transform.Rotate(0, 0, zRotation[0], Space.World);
