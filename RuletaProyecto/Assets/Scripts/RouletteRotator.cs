@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RouletteRotator : MonoBehaviour
 {
+    public  Animator anim;
     //Ruleta 1: Gameobject graficos + collider
     [SerializeField]GameObject roulette0;
     [SerializeField]GameObject roulette0Collider;
@@ -35,12 +36,19 @@ public class RouletteRotator : MonoBehaviour
     public float zRotationMax;
     public float timeBrake;
     float[] zRotation = new float[4];
+    bool checkCollision;
+
+    int ball1, ball2, ball3, ball4;
+
+    public bool CheckCollision { get => checkCollision; set => checkCollision = value; }
+
     private void Start()
     {
-        StartSpin();
+        Invoke("StartSpin",4f);
     }
     public void StartSpin()
     {
+        anim.SetTrigger("StartSpin");
         //Randomizar tiempo de cada ruleta 
         for (int i = 0; i < zAngle.Length; i++)
         {
@@ -105,5 +113,37 @@ public class RouletteRotator : MonoBehaviour
     {
         rotating = false;
         stopSpin = false;
+        anim.SetTrigger("StopSpin");
+        CheckCollision = true;
+        Invoke("CheckCollisionFalse",0.5f);
+        Invoke("PrintNumber", 0.5f);
+    }
+
+    void CheckCollisionFalse()
+    {
+        CheckCollision = false;
+    }
+    public void RegisterNumber(int ballNumber,int result)
+    {
+        switch (ballNumber)
+        {
+            case 0:
+                ball1 = result;
+                break;
+            case 1:
+                ball2 = result;
+                break;
+            case 2:
+                ball3 = result;
+                break;
+            case 3:
+                ball4 = result;
+                break;
+        }
+    }
+
+    public void PrintNumber()
+    {
+        Debug.Log(ball1 + "," + ball2 + "," + ball3 + "," + ball4);
     }
 }
