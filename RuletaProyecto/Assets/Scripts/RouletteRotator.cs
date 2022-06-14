@@ -171,12 +171,12 @@ public class RouletteRotator : MonoBehaviour
 
     public void PrintNumber()
     {
-        textTop.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+        //textTop.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
         Invoke("PrintSpin4Win", 3f);
     }
     public void PrintSpin4Win()
     {
-        textTop.text = "SPIN 4 WIN";
+        //textTop.text = "SPIN 4 WIN";
         anim.SetTrigger("StopSpin");
     }
 
