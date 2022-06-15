@@ -1,8 +1,10 @@
 using UnityEngine;
+using TMPro;
 public class RouletteRotator : MonoBehaviour
 {
-    public TextMesh textTop;
+    public TMP_Text textTop;
     public Animator anim;
+    public Animator animCanvas;
     //Ruleta 1: Gameobject graficos + collider
     
     [SerializeField] GameObject roulette0;
@@ -146,6 +148,7 @@ public class RouletteRotator : MonoBehaviour
     }
     void SpinStopped()
     {
+        animCanvas.SetTrigger("Show");
         rotating = false;
         stopSpin = false;
         CheckCollision = true;
@@ -178,12 +181,13 @@ public class RouletteRotator : MonoBehaviour
 
     public void PrintNumber()
     {
-        //textTop.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+        textTop.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
         Invoke("PrintSpin4Win", 3f);
     }
     public void PrintSpin4Win()
     {
         //textTop.text = "SPIN 4 WIN";
+        animCanvas.SetTrigger("Show");
         anim.SetTrigger("StopSpin");
     }
 
