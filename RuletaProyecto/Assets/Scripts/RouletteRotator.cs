@@ -1,12 +1,18 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 public class RouletteRotator : MonoBehaviour
 {
-    public TMP_Text textTop;
+    public TMP_Text textTop0;
+    public TMP_Text textTop1;
+    public TMP_Text textTop2;
+    public TMP_Text textTop3;
+    public TMP_Text textTop4;
+
     public Animator anim;
     public Animator animCanvas;
     //Ruleta 1: Gameobject graficos + collider
-    
+    public GameObject canvasChooseSpin;
+
     [SerializeField] GameObject roulette0;
     [SerializeField] GameObject roulette0Collider;
 
@@ -22,7 +28,8 @@ public class RouletteRotator : MonoBehaviour
     [SerializeField] GameObject roulette3;
     [SerializeField] GameObject roulette3Collider;
 
-
+    [SerializeField] GameObject[] imagesResult;
+    public int numberSpins;
 
     [SerializeField] float minSpeed, maxSpeed; //Velocidad mínima y máxima de giro de la ruleta
     [SerializeField] float minTimeToStop, maxTimeToStop; //Tiempo rotando la ruleta;
@@ -43,10 +50,25 @@ public class RouletteRotator : MonoBehaviour
     float greaterNumber;
     public bool CheckCollision { get => checkCollision; set => checkCollision = value; }
 
-    private void Start()
+    int spin = -1;
+    private void Awake()
     {
-        Invoke("ZoomIn", 2f);
-        Invoke("StartSpin", 5.5f);
+        for (int i = 0; i < imagesResult.Length; i++)
+        {
+            imagesResult[i].SetActive(false);
+        }
+    }
+   
+    public void SetNumberSpins(int spins)
+    {
+        canvasChooseSpin.SetActive(false);
+        numberSpins = spins;
+        Invoke("ZoomIn", 0.5f);
+        Invoke("StartSpin", 4.5f);
+        for (int i = 0; i <= numberSpins; i++)
+        {
+            imagesResult[i].SetActive(true);
+        }
     }
     public void ZoomIn()
     {
@@ -54,7 +76,6 @@ public class RouletteRotator : MonoBehaviour
     }
     public void StartSpin()
     {
-        
         //Randomizar tiempo de cada ruleta 
         for (int i = 0; i < zAngle.Length; i++)
         {
@@ -63,6 +84,7 @@ public class RouletteRotator : MonoBehaviour
             zRotation[i] = 0;
         }
         CheckTimer();
+        spin++;
     }
     public void CheckTimer()
     {
@@ -181,14 +203,43 @@ public class RouletteRotator : MonoBehaviour
 
     public void PrintNumber()
     {
-        textTop.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+        switch (spin)
+        {
+            case 0:
+                textTop0.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+                break;
+            case 1:
+                textTop1.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+                break;
+            case 2:
+                textTop2.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+                break;
+            case 3:
+                textTop3.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+                break;
+            case 4:
+                textTop4.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
+                break;
+        }
         Invoke("PrintSpin4Win", 3f);
     }
     public void PrintSpin4Win()
     {
         //textTop.text = "SPIN 4 WIN";
-        animCanvas.SetTrigger("Show");
-        anim.SetTrigger("StopSpin");
+        
+        if (spin < numberSpins)
+        {
+            StartSpin();
+        }
+        else
+        {
+            anim.SetTrigger("StopSpin");
+            Invoke("NoShow", 4f);
+        }
     }
-
+    public void NoShow()
+    {
+        animCanvas.SetTrigger("NoShow");
+        canvasChooseSpin.SetActive(true);
+    }
 }
