@@ -111,54 +111,54 @@ public class RouletteRotator : MonoBehaviour
             {
                 //RULETA 1
                 zRotation[0] = Mathf.Lerp(zRotation[0], zAngle[0], velocityLerpStart * Time.deltaTime);
-                roulette0.transform.Rotate(0, 0, zRotation[0], Space.World);
-                roulette0Collider.transform.Rotate(0, 0, zRotation[0], Space.World);
+                roulette0.transform.Rotate(0, 0, zRotation[0]*Time.deltaTime, Space.World);
+                roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
 
             }
             else
             {
                 zRotation[0] = Mathf.Lerp(zRotation[0], 0, velocityLerp * Time.deltaTime);
-                roulette0.transform.Rotate(0, 0, zRotation[0], Space.World);
-                roulette0Collider.transform.Rotate(0, 0, zRotation[0], Space.World);
+                roulette0.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
+                roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
             }
             if (timer[1] > 0)
             {
                 //RULETA 2
                 zRotation[1] = Mathf.Lerp(zRotation[1], zAngle[1], velocityLerpStart * Time.deltaTime);
-                roulette1.transform.Rotate(0, 0, zRotation[1], Space.World);
-                roulette1Collider.transform.Rotate(0, 0, zRotation[1], Space.World);
+                roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+                roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
             }
             else
             {
                 zRotation[1] = Mathf.Lerp(zRotation[1], 0, velocityLerp * Time.deltaTime);
-                roulette1.transform.Rotate(0, 0, zRotation[1], Space.World);
-                roulette1Collider.transform.Rotate(0, 0, zRotation[1], Space.World);
+                roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+                roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
             }
             if (timer[2] > 0)
             {
                 //RULETA 3
                 zRotation[2] = Mathf.Lerp(zRotation[2], zAngle[2], velocityLerpStart * Time.deltaTime);
-                roulette2.transform.Rotate(0, 0, zRotation[2], Space.World);
-                roulette2Collider.transform.Rotate(0, 0, zRotation[2], Space.World);
+                roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+                roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
             }
             else
             {
                 zRotation[2] = Mathf.Lerp(zRotation[2], 0, velocityLerp * Time.deltaTime);
-                roulette2.transform.Rotate(0, 0, zRotation[2], Space.World);
-                roulette2Collider.transform.Rotate(0, 0, zRotation[2], Space.World);
+                roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+                roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
             }
             if (timer[3] > 0)
             {
                 //RULETA 4
                 zRotation[3] = Mathf.Lerp(zRotation[3], zAngle[3], velocityLerpStart * Time.deltaTime);
-                roulette3.transform.Rotate(0, 0, zRotation[3], Space.World);
-                roulette3Collider.transform.Rotate(0, 0, zRotation[3], Space.World);
+                roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+                roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
             }
             else
             {
                 zRotation[3] = Mathf.Lerp(zRotation[3], 0, velocityLerp * Time.deltaTime);
-                roulette3.transform.Rotate(0, 0, zRotation[3], Space.World);
-                roulette3Collider.transform.Rotate(0, 0, zRotation[3], Space.World);
+                roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+                roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
             }
 
             if (greaterNumber < 0 && !stopSpin)
