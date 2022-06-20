@@ -170,6 +170,7 @@ public class RouletteRotator : MonoBehaviour
     }
     void SpinStopped()
     {
+        anim.SetTrigger("ShowNumber");
         animCanvas.SetTrigger("Show");
         rotating = false;
         stopSpin = false;
@@ -184,6 +185,7 @@ public class RouletteRotator : MonoBehaviour
     }
     public void RegisterNumber(int ballNumber, int result)
     {
+
         switch (ballNumber)
         {
             case 0:
@@ -203,6 +205,7 @@ public class RouletteRotator : MonoBehaviour
 
     public void PrintNumber()
     {
+        
         switch (spin)
         {
             case 0:
@@ -230,6 +233,7 @@ public class RouletteRotator : MonoBehaviour
         if (spin < numberSpins)
         {
             StartSpin();
+            anim.SetTrigger("ReSpin");
         }
         else
         {
