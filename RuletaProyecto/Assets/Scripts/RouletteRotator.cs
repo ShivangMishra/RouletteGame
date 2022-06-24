@@ -76,10 +76,14 @@ public class RouletteRotator : MonoBehaviour
     }
     public void StartSpin()
     {
+        timer[0] = minTimeToStop;
+        timer[1] = minTimeToStop + 5;
+        timer[2] = minTimeToStop + 10;
+        timer[3] = minTimeToStop + 15;
         //Randomizar tiempo de cada ruleta 
         for (int i = 0; i < zAngle.Length; i++)
         {
-            timer[i] = Random.Range(minTimeToStop, maxTimeToStop); //Por si queremos que cada ruleta tenga un tiempo de funcionamiento
+            //timer[i] = Random.Range(minTimeToStop, maxTimeToStop); //Por si queremos que cada ruleta tenga un tiempo de funcionamiento
             zAngle[i] = Random.Range(minSpeed, maxSpeed); //Para variar la velocidad de cada una de las ruletas
             zRotation[i] = 0;
         }
@@ -110,7 +114,10 @@ public class RouletteRotator : MonoBehaviour
             if (timer[0] > 0)
             {
                 //RULETA 1
-                zRotation[0] = Mathf.Lerp(zRotation[0], zAngle[0], velocityLerpStart * Time.deltaTime);
+                if (zRotation[0] != zAngle[0])
+                {
+                    zRotation[0] = Mathf.Lerp(zRotation[0], zAngle[0], velocityLerpStart * Time.deltaTime);
+                }
                 roulette0.transform.Rotate(0, 0, zRotation[0]*Time.deltaTime, Space.World);
                 roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
 
@@ -124,7 +131,10 @@ public class RouletteRotator : MonoBehaviour
             if (timer[1] > 0)
             {
                 //RULETA 2
-                zRotation[1] = Mathf.Lerp(zRotation[1], zAngle[1], velocityLerpStart * Time.deltaTime);
+                if (zRotation[1] != zAngle[1])
+                {
+                    zRotation[1] = Mathf.Lerp(zRotation[1], zAngle[1], velocityLerpStart * Time.deltaTime);
+                }
                 roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
                 roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
             }
@@ -137,7 +147,11 @@ public class RouletteRotator : MonoBehaviour
             if (timer[2] > 0)
             {
                 //RULETA 3
-                zRotation[2] = Mathf.Lerp(zRotation[2], zAngle[2], velocityLerpStart * Time.deltaTime);
+                if (zRotation[2] != zAngle[2])
+                {
+                    zRotation[2] = Mathf.Lerp(zRotation[2], zAngle[2], velocityLerpStart * Time.deltaTime);
+                }
+                   
                 roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
                 roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
             }
@@ -150,7 +164,10 @@ public class RouletteRotator : MonoBehaviour
             if (timer[3] > 0)
             {
                 //RULETA 4
-                zRotation[3] = Mathf.Lerp(zRotation[3], zAngle[3], velocityLerpStart * Time.deltaTime);
+                if (zRotation[3] != zAngle[3])
+                {
+                    zRotation[3] = Mathf.Lerp(zRotation[3], zAngle[3], velocityLerpStart * Time.deltaTime);
+                }
                 roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
                 roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
             }
