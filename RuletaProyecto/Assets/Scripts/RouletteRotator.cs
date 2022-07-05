@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 public class RouletteRotator : MonoBehaviour
 {
+    public PlayOutro playOutro;
     public TMP_Text textTop0;
     public TMP_Text textTop1;
     public TMP_Text textTop2;
@@ -260,7 +261,8 @@ public class RouletteRotator : MonoBehaviour
     }
     public void NoShow()
     {
-        animCanvas.SetTrigger("NoShow");
-        canvasChooseSpin.SetActive(true);
+        playOutro.PlayOutroScene();   
+        //animCanvas.SetTrigger("NoShow");
+        //canvasChooseSpin.SetActive(true);
     }
 }
