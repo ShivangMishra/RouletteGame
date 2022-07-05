@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 public class RouletteRotator : MonoBehaviour
 {
+    AudioSource audioSource;
     public PlayOutro playOutro;
     public TMP_Text textTop0;
     public TMP_Text textTop1;
@@ -58,6 +59,7 @@ public class RouletteRotator : MonoBehaviour
         {
             imagesResult[i].SetActive(false);
         }
+        audioSource = FindObjectOfType<AudioSource>();
     }
    
     public void SetNumberSpins(int spins)
@@ -261,6 +263,7 @@ public class RouletteRotator : MonoBehaviour
     }
     public void NoShow()
     {
+        audioSource.mute = true;
         playOutro.PlayOutroScene();   
         //animCanvas.SetTrigger("NoShow");
         //canvasChooseSpin.SetActive(true);
