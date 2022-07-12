@@ -197,6 +197,7 @@ public class RouletteRotator : MonoBehaviour
         CheckCollision = true;
         Invoke("CheckCollisionFalse", 0.5f);
         Invoke("PrintNumber", 1.2f);
+        VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.winnerNumbers);
     }
 
     void CheckCollisionFalse()
@@ -244,7 +245,161 @@ public class RouletteRotator : MonoBehaviour
                 textTop4.text = ball1 + " " + ball2 + " " + ball3 + " " + ball4;
                 break;
         }
-        Invoke("PrintSpin4Win", 3f);
+        Invoke("PrintSpin4Win", 1.5f);
+
+        Invoke("VoiceNumbers1", 2f);
+        Invoke("VoiceNumbers2", 3f);
+        Invoke("VoiceNumbers3", 4f);
+        Invoke("VoiceNumbers4", 5f);
+
+    }
+    void VoiceNumbers1()
+    {
+        switch (ball1)
+        {
+            case 0:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number0);
+                break;
+            case 1:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number1);
+                break;
+            case 2:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number2);
+                break;
+            case 3:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number3);
+                break;
+            case 4:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number4);
+                break;
+            case 5:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number5);
+                break;
+            case 6:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number6);
+                break;
+            case 7:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number7);
+                break;
+            case 8:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number8);
+                break;
+            case 9:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number9);
+                break;
+
+        }
+    }
+    void VoiceNumbers2()
+    {
+        switch (ball2)
+        {
+            case 0:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number0);
+                break;
+            case 1:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number1);
+                break;
+            case 2:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number2);
+                break;
+            case 3:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number3);
+                break;
+            case 4:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number4);
+                break;
+            case 5:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number5);
+                break;
+            case 6:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number6);
+                break;
+            case 7:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number7);
+                break;
+            case 8:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number8);
+                break;
+            case 9:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number9);
+                break;
+
+        }
+    }
+    void VoiceNumbers3()
+    {
+        switch (ball3)
+        {
+            case 0:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number0);
+                break;
+            case 1:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number1);
+                break;
+            case 2:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number2);
+                break;
+            case 3:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number3);
+                break;
+            case 4:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number4);
+                break;
+            case 5:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number5);
+                break;
+            case 6:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number6);
+                break;
+            case 7:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number7);
+                break;
+            case 8:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number8);
+                break;
+            case 9:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number9);
+                break;
+
+        }
+    }
+    void VoiceNumbers4()
+    {
+        switch (ball4)
+        {
+            case 0:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number0);
+                break;
+            case 1:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number1);
+                break;
+            case 2:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number2);
+                break;
+            case 3:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number3);
+                break;
+            case 4:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number4);
+                break;
+            case 5:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number5);
+                break;
+            case 6:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number6);
+                break;
+            case 7:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number7);
+                break;
+            case 8:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number8);
+                break;
+            case 9:
+                VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.number9);
+                break;
+
+        }
     }
     public void PrintSpin4Win()
     {
