@@ -41,4 +41,8 @@ public class VoiceManager : MonoBehaviour
         audioSource.clip = audioClip[voice];
         audioSource.Play();
     }
+    public void SetVoice(int i)
+    {
+        voice = i;
+    }
 }

@@ -13,6 +13,6 @@ public class NextScene : MonoBehaviour
   
     private void Update()
     {
-        if (video.isPaused && !changed) { SceneManager.LoadScene(1); changed = true;  }
+        if (video.isPaused && !changed) { SceneManager.LoadScene(2); changed = true;  }
     }
 }

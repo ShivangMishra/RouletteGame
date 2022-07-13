@@ -149,27 +149,40 @@ MonoBehaviour:
   BeforeWatching: []
   winnerNumbers:
   - {fileID: 8300000, guid: 027016e709b8e044fa27ab6ff2f946ec, type: 3}
+  - {fileID: 8300000, guid: 7357abb77c20e5c46ba51d66290a26f3, type: 3}
   number0:
   - {fileID: 8300000, guid: f5d01a09ad0d15345afd46a00e86a415, type: 3}
+  - {fileID: 8300000, guid: 3bacd149b51a23a4ea87b4d0e1036258, type: 3}
   number1:
   - {fileID: 8300000, guid: 27f55034b1a45d84bb7604ea1fb9ccde, type: 3}
+  - {fileID: 8300000, guid: 96ffd089ecc889b41b8d92f0c9fec698, type: 3}
   number2:
   - {fileID: 8300000, guid: 5c2d408c43346a248bc79f4b85e254c5, type: 3}
+  - {fileID: 8300000, guid: e9f499f907ab8994c9ef395365a320d5, type: 3}
   number3:
   - {fileID: 8300000, guid: 5ad3ae01c461f0c47a718ed8a107abed, type: 3}
+  - {fileID: 8300000, guid: 322b7d316bd741741845d25b370c826e, type: 3}
   number4:
   - {fileID: 8300000, guid: 1a467534f2883f24d806774c6a56a197, type: 3}
+  - {fileID: 8300000, guid: 3cb609f2e3665c941b8bd662476ced78, type: 3}
   number5:
   - {fileID: 8300000, guid: fa2d68a583d46404eb387c850ade0a61, type: 3}
+  - {fileID: 8300000, guid: 9151434ea509b854c8a54a8ccb922a62, type: 3}
   number6:
   - {fileID: 8300000, guid: 9afd1f8e9351d3242906ff482cd20d23, type: 3}
+  - {fileID: 8300000, guid: b18cd6bc88c8129448beebdade505ce1, type: 3}
   number7:
   - {fileID: 8300000, guid: 079ad2fd46ac0f7498a989b91026088f, type: 3}
+  - {fileID: 8300000, guid: 87f0683a3c8c8e14aafce2ec35a2e198, type: 3}
   number8:
   - {fileID: 8300000, guid: c6867ccaa9bd2824a9afec1a77d54d3c, type: 3}
+  - {fileID: 8300000, guid: bcd335a1714d9754fbe97f3f8193a12e, type: 3}
   number9:
   - {fileID: 8300000, guid: 0c8a566238082b244b1caf4a896442ad, type: 3}
+  - {fileID: 8300000, guid: 0b0ab3610949bf5499d81290a36946b0, type: 3}
   congratulations:
   - {fileID: 8300000, guid: 0b81d776b4a0e4c488bc72b2128258d8, type: 3}
+  - {fileID: 8300000, guid: d834bc294bb5ac540aa0d7681d32b67a, type: 3}
   nextWinner:
   - {fileID: 8300000, guid: 58b56998df0a3544589451aca8312dfb, type: 3}
+  - {fileID: 8300000, guid: 86da93e6f630c2c4f8d1190506038f83, type: 3}
