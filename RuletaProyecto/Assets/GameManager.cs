@@ -8,8 +8,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public float speedA=-300, speedB=-300, speedC=-300, speedD=-300;
     public float speed2A = -300, speed2B = -300, speed2C = -300, speed2D = -300;
+    public float speed3A = -300, speed3B = -300, speed3C = -300, speed3D = -300;
+    public float speed4A = -300, speed4B = -300, speed4C = -300, speed4D = -300;
     public float timeA, timeB, timeC, timeD;
     public float time2A, time2B, time2C, time2D;
+    public float time3A, time3B, time3C, time3D;
+    public float time4A, time4B, time4C, time4D;
     public GameObject[] buttonsCustomize;
     private void Awake()
     {
@@ -124,6 +128,76 @@ public class GameManager : MonoBehaviour
     public void SetTime2D(float f)
     {
         time2D = f;
+    }
+    #endregion
+    #region 3rd WinningNumber
+    public void SetSpeed3A(float f)
+    {
+        speed3A = f;
+    }
+    public void SetSpeed3B(float f)
+    {
+        speed3B = f;
+    }
+    public void SetSpeed3C(float f)
+    {
+        speed3C = f;
+    }
+    public void SetSpeed3D(float f)
+    {
+        speed3D = f;
+    }
+
+    public void SetTime3A(float f)
+    {
+        time3A = f;
+    }
+    public void SetTime3B(float f)
+    {
+        time3B = f;
+    }
+    public void SetTime3C(float f)
+    {
+        time3C = f;
+    }
+    public void SetTime3D(float f)
+    {
+        time3D = f;
+    }
+    #endregion
+    #region 4th WinningNumber
+    public void SetSpeed4A(float f)
+    {
+        speed4A = f;
+    }
+    public void SetSpeed4B(float f)
+    {
+        speed4B = f;
+    }
+    public void SetSpeed4C(float f)
+    {
+        speed4C = f;
+    }
+    public void SetSpeed4D(float f)
+    {
+        speed4D = f;
+    }
+
+    public void SetTime4A(float f)
+    {
+        time4A = f;
+    }
+    public void SetTime4B(float f)
+    {
+        time4B = f;
+    }
+    public void SetTime4C(float f)
+    {
+        time4C = f;
+    }
+    public void SetTime4D(float f)
+    {
+        time4D = f;
     }
     #endregion
 }

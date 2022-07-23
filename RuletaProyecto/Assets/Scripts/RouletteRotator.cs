@@ -97,15 +97,54 @@ public class RouletteRotator : MonoBehaviour
         timer[2] = minTimeToStop + 10;
         timer[3] = minTimeToStop + 15;
         */
-        timer[0] = GameManager.instance.timeA;
-        timer[1] = GameManager.instance.timeB;
-        timer[2] = GameManager.instance.timeC;
-        timer[3] = GameManager.instance.timeD;
+        switch (spin)
+        {
+            case -1:
+                timer[0] = GameManager.instance.timeA;
+                timer[1] = GameManager.instance.timeB;
+                timer[2] = GameManager.instance.timeC;
+                timer[3] = GameManager.instance.timeD;
 
-        zAngle[0] = GameManager.instance.speedA;
-        zAngle[1] = GameManager.instance.speedB;
-        zAngle[2] = GameManager.instance.speedC;
-        zAngle[3] = GameManager.instance.speedD;
+                zAngle[0] = GameManager.instance.speedA;
+                zAngle[1] = GameManager.instance.speedB;
+                zAngle[2] = GameManager.instance.speedC;
+                zAngle[3] = GameManager.instance.speedD;
+                break;
+            case 0:
+                timer[0] = GameManager.instance.time2A;
+                timer[1] = GameManager.instance.time2B;
+                timer[2] = GameManager.instance.time2C;
+                timer[3] = GameManager.instance.time2D;
+
+                zAngle[0] = GameManager.instance.speed2A;
+                zAngle[1] = GameManager.instance.speed2B;
+                zAngle[2] = GameManager.instance.speed2C;
+                zAngle[3] = GameManager.instance.speed2D;
+                break;
+            case 1:
+                timer[0] = GameManager.instance.time3A;
+                timer[1] = GameManager.instance.time3B;
+                timer[2] = GameManager.instance.time3C;
+                timer[3] = GameManager.instance.time3D;
+
+                zAngle[0] = GameManager.instance.speed3A;
+                zAngle[1] = GameManager.instance.speed3B;
+                zAngle[2] = GameManager.instance.speed3C;
+                zAngle[3] = GameManager.instance.speed3D;
+                break;
+            case 2:
+                timer[0] = GameManager.instance.time4A;
+                timer[1] = GameManager.instance.time4B;
+                timer[2] = GameManager.instance.time4C;
+                timer[3] = GameManager.instance.time4D;
+
+                zAngle[0] = GameManager.instance.speed4A;
+                zAngle[1] = GameManager.instance.speed4B;
+                zAngle[2] = GameManager.instance.speed4C;
+                zAngle[3] = GameManager.instance.speed4D;
+                break;
+        }
+        
         //Randomizar tiempo de cada ruleta 
         for (int i = 0; i < zAngle.Length; i++)
         {
@@ -259,8 +298,8 @@ public class RouletteRotator : MonoBehaviour
         rotating = false;
         stopSpin = false;
         CheckCollision = true;
-        Invoke("CheckCollisionFalse", 2.2f);
-        Invoke("PrintNumber", 2.5f);
+        Invoke("CheckCollisionFalse", 2.8f);
+        Invoke("PrintNumber", 3f);
         VoiceManager.instance.PlayVoiceManager(VoiceManager.instance.winnerNumbers);
     }
 

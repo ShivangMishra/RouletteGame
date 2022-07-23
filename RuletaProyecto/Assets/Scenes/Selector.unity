@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -792,7 +792,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedC
+        m_MethodName: SetSpeed2C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2483,7 +2483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Customize 4th spin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3283,7 +3283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Customize 2nd spin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4519,7 +4519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeD
+        m_MethodName: SetTime4D
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5839,7 +5839,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeD
+        m_MethodName: SetTime3D
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5943,7 +5943,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedB
+        m_MethodName: SetSpeed3B
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5987,10 +5987,34 @@ MonoBehaviour:
   speedB: -300
   speedC: -300
   speedD: -300
+  speed2A: -300
+  speed2B: -300
+  speed2C: -300
+  speed2D: -300
+  speed3A: -300
+  speed3B: -300
+  speed3C: -300
+  speed3D: -300
+  speed4A: -300
+  speed4B: -300
+  speed4C: -300
+  speed4D: -300
   timeA: 20
   timeB: 20
   timeC: 20
   timeD: 20
+  time2A: 0
+  time2B: 0
+  time2C: 0
+  time2D: 0
+  time3A: 0
+  time3B: 0
+  time3C: 0
+  time3D: 0
+  time4A: 0
+  time4B: 0
+  time4C: 0
+  time4D: 0
   buttonsCustomize:
   - {fileID: 754877979}
   - {fileID: 1635116048}
@@ -6511,7 +6535,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedC
+        m_MethodName: SetSpeed4C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6930,7 +6954,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeC
+        m_MethodName: SetTime3C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7352,7 +7376,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedC
+        m_MethodName: SetSpeed3C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9779,7 +9803,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeC
+        m_MethodName: SetTime4C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9959,7 +9983,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeB
+        m_MethodName: SetTime4B
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10063,7 +10087,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedD
+        m_MethodName: SetSpeed4C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11212,7 +11236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Customize 1st spin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11753,7 +11777,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Customize 3rd spin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12322,7 +12346,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeB
+        m_MethodName: SetTime2B
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14248,7 +14272,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedD
+        m_MethodName: SetSpeed3D
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15080,7 +15104,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedD
+        m_MethodName: SetSpeed2D
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15867,7 +15891,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeC
+        m_MethodName: SetTime2C
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16258,7 +16282,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedB
+        m_MethodName: SetSpeed2B
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16960,7 +16984,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedA
+        m_MethodName: SetSpeed2A
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18177,7 +18201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedA
+        m_MethodName: SetSpeed3A
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18872,7 +18896,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeA
+        m_MethodName: SetTime3A
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19052,7 +19076,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeA
+        m_MethodName: SetTime2A
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19770,7 +19794,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedA
+        m_MethodName: SetSpeed4A
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19874,7 +19898,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeB
+        m_MethodName: SetTime3B
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19978,7 +20002,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetSpeedB
+        m_MethodName: SetSpeed4B
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20823,7 +20847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3rd Winning Number
+  m_text: 4th Winning Number
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23743,7 +23767,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeA
+        m_MethodName: SetTime4A
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24067,7 +24091,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 494444626}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetTimeD
+        m_MethodName: SetTime2D
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
