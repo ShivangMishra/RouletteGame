@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int numberSpins=1;
+    public int numberSpins = 1;
     public static GameManager instance;
-    public float speedA=-300, speedB=-300, speedC=-300, speedD=-300;
+    public float speedA = -300, speedB = -300, speedC = -300, speedD = -300;
     public float speed2A = -300, speed2B = -300, speed2C = -300, speed2D = -300;
     public float speed3A = -300, speed3B = -300, speed3C = -300, speed3D = -300;
     public float speed4A = -300, speed4B = -300, speed4C = -300, speed4D = -300;
@@ -14,17 +14,22 @@ public class GameManager : MonoBehaviour
     public float time2A, time2B, time2C, time2D;
     public float time3A, time3B, time3C, time3D;
     public float time4A, time4B, time4C, time4D;
+
+    public int[,] nums = { { 1, 2, 3, 4 } };
+
     public GameObject[] buttonsCustomize;
     private void Awake()
     {
+        Screen.SetResolution(1270, 720, false);
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else {
+        else
+        {
             Destroy(this.gameObject);
-             }
+        }
 
     }
     public void SetNumberSpins(int i)

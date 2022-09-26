@@ -41,7 +41,7 @@ public class RouletteRotator : MonoBehaviour
     [SerializeField] GameObject[] imagesResult;
     public int numberSpins;
 
-    [SerializeField] float minSpeed, maxSpeed; //Velocidad mínima y máxima de giro de la ruleta
+    [SerializeField] float minSpeed, maxSpeed; //Velocidad mï¿½nima y mï¿½xima de giro de la ruleta
     [SerializeField] float minTimeToStop, maxTimeToStop; //Tiempo rotando la ruleta;
     float[] zAngle = new float[4];
     public float[] timer = new float[4];
@@ -144,7 +144,7 @@ public class RouletteRotator : MonoBehaviour
                 zAngle[3] = GameManager.instance.speed4D;
                 break;
         }
-        
+
         //Randomizar tiempo de cada ruleta 
         for (int i = 0; i < zAngle.Length; i++)
         {

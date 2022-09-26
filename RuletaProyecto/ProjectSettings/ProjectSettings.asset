@@ -42,8 +42,8 @@ PlayerSettings:
   m_SplashScreenLogos: []
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
-  defaultScreenWidth: 1920
-  defaultScreenHeight: 1080
+  defaultScreenWidth: 720
+  defaultScreenHeight: 480
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
@@ -99,7 +99,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -772,6 +772,7 @@ PlayerSettings:
   ps4videoRecordingFeaturesUsed: 0
   ps4contentSearchFeaturesUsed: 0
   ps4CompatibilityPS5: 0
+  ps4AllowPS5Detection: 0
   ps4GPU800MHz: 1
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules:
@@ -807,7 +808,22 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    CloudRendering: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    EmbeddedLinux: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    GameCoreXboxOne: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    Lumin: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    Nintendo Switch: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    PS4: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    PS5: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    Stadia: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    Standalone: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    WebGL: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    Windows Store Apps: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    XboxOne: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    iPhone: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
+    tvOS: CT_FB;CT_PROC;CT_RTFB;CT_UI;CT_FB_DEMO
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

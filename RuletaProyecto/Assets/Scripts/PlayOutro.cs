@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayOutro : MonoBehaviour
 {
- public void PlayOutroScene()
+
+    public void PlayOutroScene()
     {
         SceneManager.LoadScene(3);
     }
