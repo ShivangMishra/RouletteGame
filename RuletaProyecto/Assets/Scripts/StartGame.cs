@@ -21,13 +21,8 @@ public class StartGame : MonoBehaviour
 
         VideoCapture vc = GameObject.Find("VideoCapture")
         .GetComponent<VideoCapture>();
-        // vc.resolutionPreset = Evereal.VideoCapture.ResolutionPreset.CUSTOM;
-        // ResolutionManager rm = GameObject.Find("ResolutionManager").GetComponent<ResolutionManager>();
-        // vc.frameWidth = rm.getWidth();
-        // vc.frameHeight = rm.getHeight();
-        // vc.saveFolder = path;
         Screen.SetResolution(vc.frameWidth, vc.frameHeight, false);
+        Debug.LogWarning(vc.frameWidth + " , " + vc.frameHeight);
         vc.quitAfterCapture = true;
-        vc.StartCapture();
     }
 }
