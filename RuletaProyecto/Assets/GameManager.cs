@@ -15,7 +15,33 @@ public class GameManager : MonoBehaviour
     public float time3A, time3B, time3C, time3D;
     public float time4A, time4B, time4C, time4D;
 
-    public int[,] nums = { { 1, 2, 3, 4 } };
+    public int numA = -1, numB = -1, numC = -2, numD = -3;
+    public int num2A = -4, num2B = -5, num2C = 6, num2D = -7;
+    public int num3A = -8, num3B = -9, num3C = -9, num3D = -1;
+    public int num4A = -2, num4B = -3, num4C = -4, num4D = -5;
+
+
+    public int checkNumbers()
+    {
+        if (numA == -1 || numB == -1 || numC == -1 || numD == -1)
+            return 1;
+
+        if (numberSpins < 2)
+            return -1;
+        if (num2A == -1 || num2B == -1 || num2C == -1 || num2D == -1)
+            return 2;
+
+        if (numberSpins < 3)
+            return -1;
+        if (num3A == -1 || num3B == -1 || num3C == -1 || num3D == -1)
+            return 3;
+
+        if (numberSpins < 4)
+            return -1;
+        if (num4A == -1 || num4B == -1 || num4C == -1 || num4D == -1)
+            return 4;
+        return -1;
+    }
 
     public GameObject[] buttonsCustomize;
     private void Awake()
@@ -99,6 +125,22 @@ public class GameManager : MonoBehaviour
     {
         timeD = f;
     }
+    public void SetNumA(int num)
+    {
+        numA = num;
+    }
+    public void SetNumB(int num)
+    {
+        numB = num;
+    }
+    public void SetNumC(int num)
+    {
+        numC = num;
+    }
+    public void SetNumD(int num)
+    {
+        numD = num;
+    }
     #endregion
     #region 2nd WinningNumber
     public void SetSpeed2A(float f)
@@ -134,6 +176,23 @@ public class GameManager : MonoBehaviour
     {
         time2D = f;
     }
+    public void SetNum2A(int num)
+    {
+        num2A = num;
+    }
+    public void SetNum2B(int num)
+    {
+        num2B = num;
+    }
+    public void SetNum2C(int num)
+    {
+        num2C = num;
+    }
+    public void SetNum2D(int num)
+    {
+        num2D = num;
+    }
+
     #endregion
     #region 3rd WinningNumber
     public void SetSpeed3A(float f)
@@ -169,6 +228,25 @@ public class GameManager : MonoBehaviour
     {
         time3D = f;
     }
+
+
+
+    public void SetNum3A(int num)
+    {
+        num3A = num;
+    }
+    public void SetNum3B(int num)
+    {
+        num3B = num;
+    }
+    public void SetNum3C(int num)
+    {
+        num3C = num;
+    }
+    public void SetNum3D(int num)
+    {
+        num3D = num;
+    }
     #endregion
     #region 4th WinningNumber
     public void SetSpeed4A(float f)
@@ -203,6 +281,22 @@ public class GameManager : MonoBehaviour
     public void SetTime4D(float f)
     {
         time4D = f;
+    }
+    public void SetNum4A(int num)
+    {
+        num4A = num;
+    }
+    public void SetNum4B(int num)
+    {
+        num4B = num;
+    }
+    public void SetNum4C(int num)
+    {
+        num4C = num;
+    }
+    public void SetNum4D(int num)
+    {
+        num4D = num;
     }
     #endregion
 }

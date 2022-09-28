@@ -17,7 +17,6 @@ public class RouletteRotator : MonoBehaviour
     public TMP_Text textTop2;
     public TMP_Text textTop3;
     public TMP_Text textTop4;
-
     public Animator anim;
     public Animator animCanvas;
     //Ruleta 1: Gameobject graficos + collider
@@ -41,11 +40,13 @@ public class RouletteRotator : MonoBehaviour
     [SerializeField] GameObject[] imagesResult;
     public int numberSpins;
 
+
+    string[] colNames = new string[10];
     [SerializeField] float minSpeed, maxSpeed; //Velocidad m�nima y m�xima de giro de la ruleta
     [SerializeField] float minTimeToStop, maxTimeToStop; //Tiempo rotando la ruleta;
     float[] zAngle = new float[4];
     public float[] timer = new float[4];
-
+    int[] nums = new int[4];
     bool rotating;
     bool stopSpin;
     //Testeo Lerp
@@ -61,6 +62,8 @@ public class RouletteRotator : MonoBehaviour
     public bool CheckCollision { get => checkCollision; set => checkCollision = value; }
 
     int spin = -1;
+
+    BoxCollider[,] allColliders = new BoxCollider[4, 10];
     private void Awake()
     {
         for (int i = 0; i < imagesResult.Length; i++)
@@ -71,9 +74,132 @@ public class RouletteRotator : MonoBehaviour
     }
     private void Start()
     {
+        for (int i = 0; i < colNames.Length; i++)
+        {
+            if (i == 0)
+            {
+                colNames[i] = "Cube";
+            }
+            else
+            {
+                colNames[i] = "Cube (" + i + ")";
+            }
+
+            allColliders[0, i] = roulette0Collider.transform.Find(colNames[i]).GetComponent<BoxCollider>();
+            allColliders[1, i] = roulette1Collider.transform.Find(colNames[i]).GetComponent<BoxCollider>();
+            allColliders[2, i] = roulette2Collider.transform.Find(colNames[i]).GetComponent<BoxCollider>();
+            allColliders[3, i] = roulette3Collider.transform.Find(colNames[i]).GetComponent<BoxCollider>();
+        }
+
+
         SetNumberSpins(GameManager.instance.numberSpins);
     }
 
+
+    // public static int numToSection(int num)
+    // {
+    //     int numBottom = 5;
+    //     int nSections = 10;
+    //     if (num <= numBottom)
+    //         return numBottom - num;
+
+    //     else
+    //         return nSections + numBottom - num;
+    // }
+    public static float numToAngle(int num)
+    {
+        return 90 + (num - 5) * 36;
+    }
+
+
+    public static Quaternion numToRotationCollider(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return new Quaternion(0.699063838f, -0.106347486f, 0.699063838f, -0.106347486f);
+            case 1:
+                return new Quaternion(0.631985962f, -0.317165136f, 0.631985962f, -0.317165136f);
+            case 2:
+                return new Quaternion(0.503045022f, -0.496936321f, 0.503045022f, -0.496936321f);
+            case 3:
+                return new Quaternion(-0.32486245f, 0.628064036f, -0.32486245f, 0.628064036f);
+            case 4:
+                return new Quaternion(-0.11488004f, 0.697712421f, -0.11488004f, 0.697712421f);
+            case 6:
+                return new Quaternion(0.317165136f, 0.631985962f, 0.317165136f, 0.631985962f);
+            case 7:
+                return new Quaternion(0.49693644f, 0.503044963f, 0.49693644f, 0.503044963f);
+            case 8:
+                return new Quaternion(0.628064036f, 0.32486245f, 0.628064036f, 0.32486245f);
+            case 9:
+                return new Quaternion(0.697712421f, 0.114880107f, 0.697712421f, 0.114880107f);
+
+            default:
+                Debug.LogError("invalid collider rotation");
+                return new Quaternion(-0.11488004f, 0.697712421f, -0.11488004f, 0.697712421f);
+        }
+    }
+
+    public static Quaternion numToRotation(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return new Quaternion(-0.5f, 0.5f, 0.5f, 0.5f);
+            case 1:
+                return new Quaternion(-0.321019709f, 0.321019709f, 0.630036831f, 0.630036831f);
+            case 2:
+                return new Quaternion(-0.110615902f, 0.110615902f, 0.698401153f, 0.698401153f);
+            case 3:
+                return new Quaternion(0.110615902f, -0.110615902f, 0.698401153f, 0.698401153f);
+            case 4:
+                return new Quaternion(0.321019709f, -0.321019709f, 0.630036831f, 0.630036831f);
+            case 5:
+                return new Quaternion(0.5f, -0.5f, 0.5f, 0.5f);
+            case 6:
+                return new Quaternion(0.630036771f, -0.630036771f, 0.321019828f, 0.321019828f);
+            case 7:
+                return new Quaternion(0.698401153f, -0.698401153f, 0.110615902f, 0.110615902f);
+            case 8:
+                return new Quaternion(0.698401153f, -0.698401153f, -0.110615768f, -0.110615768f);
+            case 9:
+                return new Quaternion(0.630036891f, -0.630036891f, -0.32101959f, -0.32101959f);
+            default:
+                Debug.LogError("Invalid rotation");
+                return new Quaternion(0.630036891f, -0.630036891f, -0.32101959f, -0.32101959f);
+        }
+    }
+
+    public static Vector3 numToEuler(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return new Vector3(270, 90, 0);
+            case 1:
+                return new Vector3(306, 0, 90);
+            case 2:
+                return new Vector3(342, 0, 90);
+            case 3:
+                return new Vector3(18, 0, 90);
+            case 4:
+                return new Vector3(53, 0, 90);
+            case 5:
+                return new Vector3(90, 270, 0);
+            case 6:
+                return new Vector3(54, 180, 270);
+            case 7:
+                return new Vector3(18, 180, 270);
+            case 8:
+                return new Vector3(342, 180, 270);
+            case 9:
+                return new Vector3(306, 180, 270);
+            default:
+                Debug.LogError("Invalid rotation");
+                return new Vector3(306, 180, 270);
+        }
+    }
     public void SetNumberSpins(int spins)
     {
         canvasChooseSpin.SetActive(false);
@@ -109,6 +235,11 @@ public class RouletteRotator : MonoBehaviour
                 zAngle[1] = GameManager.instance.speedB;
                 zAngle[2] = GameManager.instance.speedC;
                 zAngle[3] = GameManager.instance.speedD;
+
+                nums[0] = GameManager.instance.numA;
+                nums[1] = GameManager.instance.numB;
+                nums[2] = GameManager.instance.numC;
+                nums[3] = GameManager.instance.numD;
                 break;
             case 0:
                 timer[0] = GameManager.instance.time2A;
@@ -120,6 +251,10 @@ public class RouletteRotator : MonoBehaviour
                 zAngle[1] = GameManager.instance.speed2B;
                 zAngle[2] = GameManager.instance.speed2C;
                 zAngle[3] = GameManager.instance.speed2D;
+                nums[0] = GameManager.instance.num2A;
+                nums[1] = GameManager.instance.num2B;
+                nums[2] = GameManager.instance.num2C;
+                nums[3] = GameManager.instance.num2D;
                 break;
             case 1:
                 timer[0] = GameManager.instance.time3A;
@@ -131,6 +266,11 @@ public class RouletteRotator : MonoBehaviour
                 zAngle[1] = GameManager.instance.speed3B;
                 zAngle[2] = GameManager.instance.speed3C;
                 zAngle[3] = GameManager.instance.speed3D;
+
+                nums[0] = GameManager.instance.num3A;
+                nums[1] = GameManager.instance.num3B;
+                nums[2] = GameManager.instance.num3C;
+                nums[3] = GameManager.instance.num3D;
                 break;
             case 2:
                 timer[0] = GameManager.instance.time4A;
@@ -142,6 +282,11 @@ public class RouletteRotator : MonoBehaviour
                 zAngle[1] = GameManager.instance.speed4B;
                 zAngle[2] = GameManager.instance.speed4C;
                 zAngle[3] = GameManager.instance.speed4D;
+
+                nums[0] = GameManager.instance.num4A;
+                nums[1] = GameManager.instance.num4B;
+                nums[2] = GameManager.instance.num4C;
+                nums[3] = GameManager.instance.num4D;
                 break;
         }
 
@@ -153,6 +298,11 @@ public class RouletteRotator : MonoBehaviour
             zRotation[i] = 0;
         }
         CheckTimer();
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 4; j++)
+                allColliders[j, i].enabled = true;
+        }
         spin++;
     }
     public void CheckTimer()
@@ -171,6 +321,11 @@ public class RouletteRotator : MonoBehaviour
         audioRoulette3.Play();
         audioRoulette4.Play();
     }
+
+    public static float anglePrincipal(float angle)
+    {
+        return angle % 360;
+    }
     private void Update()
     {
         if (rotating)  //Si ha empezado el giro
@@ -180,6 +335,7 @@ public class RouletteRotator : MonoBehaviour
             timer[2] -= Time.deltaTime;
             timer[3] -= Time.deltaTime;
             greaterNumber -= Time.deltaTime;
+            // bool isDone = transform.rotation.x == numToAngle(GameManager.instance.numA);
             if (timer[0] > 0)
             {
                 audioPitch1 = zRotation[0] / zAngle[0];
@@ -191,20 +347,58 @@ public class RouletteRotator : MonoBehaviour
                 }
                 roulette0.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
                 roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
-
             }
             else
             {
                 audioPitch1 = zRotation[0] / zAngle[0];
                 Debug.Log(zRotation[0]);
-                zRotation[0] = Mathf.Lerp(zRotation[0], 0, velocityLerp * Time.deltaTime);
+
+                Debug.LogError("rotation : " + roulette0.transform.localRotation.ToString());
+
+                // float rotateBy =
+                // zRotation[0] = Mathf.Lerp(roulette0.transform.rotation.z);
                 audioRoulette1.pitch = audioPitch1;
+                float requiredLocalX = numToAngle(nums[0]);
+                float currentLocalX = roulette0.transform.localEulerAngles.x;
+                float lerpTemp = Mathf.Lerp(zRotation[0], 0, velocityLerp * Time.deltaTime);
+                if (lerpTemp < -10)
+                    zRotation[0] = lerpTemp;
+                Debug.LogError(roulette0.transform.localEulerAngles);
+
+                if (Mathf.Abs(-requiredLocalX) >= 10)
+                {
+                    roulette0.transform.Rotate(0, -zRotation[0] * Time.deltaTime, 0, Space.Self);
+                    roulette0Collider.transform.Rotate(-zRotation[0] * Time.deltaTime, 0, 0, Space.Self);
+                    zRotation[0] = 0;
+                }
+                else
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        allColliders[0, i].enabled = false;
+                    }
+                }
+
+
+                // roulette0.transform.localRotation = Quaternion.Lerp(roulette0.transform.localRotation, numToRotation(nums[0]), velocityLerp * Time.deltaTime);
+                // roulette0Collider.transform.localRotation = Quaternion.Lerp(roulette0Collider.transform.localRotation, numToRotationCollider(nums[0]), velocityLerp * Time.deltaTime);
+
+
                 //PARAR CUANDO LA ROTACION SEA MUY LENTA
                 if (zRotation[0] < -6)
                 {
+
                     roulette0.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
                     roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
+
                 }
+                // roulette0.transform.localRotation = Quaternion.Lerp(roulette0.transform.localRotation, numToRotation(nums[0]), velocityLerp * Time.deltaTime);
+                // roulette0Collider.transform.localRotation = Quaternion.Lerp(roulette0Collider.transform.localRotation, numToRotationCollider(nums[0]), velocityLerp * Time.deltaTime);
+                for (int i = 0; i < 10; i++)
+                {
+                    allColliders[0, i].enabled = false;
+                }
+                Debug.LogWarning("roulette 0 = " + nums[0]);
 
             }
             if (timer[1] > 0)
@@ -223,14 +417,20 @@ public class RouletteRotator : MonoBehaviour
             {
                 audioPitch2 = zRotation[1] / zAngle[1];
                 audioRoulette2.pitch = audioPitch2;
-                zRotation[1] = Mathf.Lerp(zRotation[1], 0, velocityLerp * Time.deltaTime);
-                if (zRotation[1] < -6)
+                // zRotation[1] = Mathf.Lerp(zRotation[1], 0, velocityLerp * Time.deltaTime);
+                // if (zRotation[1] < -6)
+                // {
+                //     roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+                //     roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+
+                // }
+                roulette1.transform.localRotation = Quaternion.Lerp(roulette1.transform.localRotation, numToRotation(nums[1]), velocityLerp * Time.deltaTime);
+                roulette1Collider.transform.localRotation = Quaternion.Lerp(roulette1Collider.transform.localRotation, numToRotationCollider(nums[1]), velocityLerp * Time.deltaTime);
+                for (int i = 0; i < 10; i++)
                 {
-                    roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
-                    roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
-
+                    allColliders[1, i].enabled = false;
                 }
-
+                Debug.LogWarning("roulette 1 = " + nums[1]);
             }
             if (timer[2] > 0)
             {
@@ -249,12 +449,19 @@ public class RouletteRotator : MonoBehaviour
             {
                 audioPitch3 = zRotation[2] / zAngle[2];
                 audioRoulette3.pitch = audioPitch3;
-                zRotation[2] = Mathf.Lerp(zRotation[2], 0, velocityLerp * Time.deltaTime);
-                if (zRotation[2] < -6)
+                // zRotation[2] = Mathf.Lerp(zRotation[2], 0, velocityLerp * Time.deltaTime);
+                // if (zRotation[2] < -6)
+                // {
+                //     roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+                //     roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+                // }
+                roulette2.transform.localRotation = Quaternion.Lerp(roulette2.transform.localRotation, numToRotation(nums[2]), velocityLerp * Time.deltaTime);
+                roulette2Collider.transform.localRotation = Quaternion.Lerp(roulette2Collider.transform.localRotation, numToRotationCollider(nums[2]), velocityLerp * Time.deltaTime);
+                for (int i = 0; i < 10; i++)
                 {
-                    roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
-                    roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+                    allColliders[2, i].enabled = false;
                 }
+                Debug.LogWarning("roulette 2 = " + nums[2]);
 
             }
             if (timer[3] > 0)
@@ -275,12 +482,19 @@ public class RouletteRotator : MonoBehaviour
             {
                 audioPitch4 = zRotation[3] / zAngle[3];
                 audioRoulette4.pitch = audioPitch4;
-                zRotation[3] = Mathf.Lerp(zRotation[3], 0, velocityLerp * Time.deltaTime);
-                if (zRotation[3] < -6)
+                // zRotation[3] = Mathf.Lerp(zRotation[3], 0, velocityLerp * Time.deltaTime);
+                // if (zRotation[3] < -6)
+                // {
+                //     roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+                //     roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+                // }
+                roulette3.transform.localRotation = Quaternion.Lerp(roulette3.transform.localRotation, numToRotation(nums[3]), velocityLerp * Time.deltaTime);
+                roulette3Collider.transform.localRotation = Quaternion.Lerp(roulette3Collider.transform.localRotation, numToRotationCollider(nums[3]), velocityLerp * Time.deltaTime);
+                for (int i = 0; i < 10; i++)
                 {
-                    roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
-                    roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+                    allColliders[3, i].enabled = false;
                 }
+                Debug.LogWarning("roulette 3 = " + nums[3]);
 
             }
 
