@@ -310,7 +310,7 @@ public class RouletteRotator : MonoBehaviour
             timer[3] -= Time.deltaTime;
             greaterNumber -= Time.deltaTime;
             // bool isDone = transform.rotation.x == numToAngle(GameManager.instance.numA);
-            if (timer[0] > 0)
+            if (timer[0] > 1)
             {
                 audioPitch1 = zRotation[0] / zAngle[0];
                 //RULETA 1
@@ -322,16 +322,26 @@ public class RouletteRotator : MonoBehaviour
                 roulette0.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
                 roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
             }
+            else if (Mathf.Abs(zRotation[0]) > 100)
+            {
+                Debug.LogError(zRotation[0]);
+                zRotation[0] = Mathf.Lerp(zRotation[0], 0, velocityLerp * Time.deltaTime);
+
+                roulette0.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
+                roulette0Collider.transform.Rotate(0, 0, zRotation[0] * Time.deltaTime, Space.World);
+
+            }
             else
             {
+                Debug.LogWarning(zRotation[0]);
                 audioPitch1 = vLerp1 / velocityLerp;
-                Debug.Log(zRotation[0]);
+                // Debug.Log(zRotation[0]);
                 // zRotation[0] = Mathf.Lerp(transform.rotation.x, 0, velocityLerp * Time.deltaTime);
                 // transform.rotation.x = Mathf.Lerp(transform.rotation.x, 0, velocityLerp * Time.deltaTime);
                 // roulette0.transform.rotation = Quaternion.Lerp(roulette0.transform.rotation, Quaternion.Euler(0, 90, 0), velocityLerpStart * Time.deltaTime);
                 // roulette0.transform.rotation = Quaternion.Euler(90, 0, 0);
 
-                Debug.LogError("rotation : " + roulette0.transform.localRotation.ToString());
+                // Debug.LogError("rotation : " + roulette0.transform.localRotation.ToString());
 
 
                 // float x = Mathf.Lerp(roulette0.transform.localEulerAngles.x, 90, velocityLerpStart / 2 * Time.deltaTime);
@@ -383,7 +393,7 @@ public class RouletteRotator : MonoBehaviour
                 {
                     allColliders[0, i].enabled = false;
                 }
-                Debug.LogWarning("roulette 0 = " + nums[0]);
+                // Debug.LogWarning("roulette 0 = " + nums[0]);
 
             }
             if (timer[1] > 0)
@@ -397,6 +407,15 @@ public class RouletteRotator : MonoBehaviour
                 }
                 roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
                 roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+            }
+            else if (Mathf.Abs(zRotation[1]) > 100)
+            {
+                Debug.LogError(zRotation[1]);
+                zRotation[1] = Mathf.Lerp(zRotation[1], 0, velocityLerp * Time.deltaTime);
+
+                roulette1.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+                roulette1Collider.transform.Rotate(0, 0, zRotation[1] * Time.deltaTime, Space.World);
+
             }
             else
             {
@@ -416,7 +435,7 @@ public class RouletteRotator : MonoBehaviour
                 {
                     allColliders[1, i].enabled = false;
                 }
-                Debug.LogWarning("roulette 1 = " + nums[1]);
+                // Debug.LogWarning("roulette 1 = " + nums[1]);
             }
             if (timer[2] > 0)
             {
@@ -430,6 +449,15 @@ public class RouletteRotator : MonoBehaviour
 
                 roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
                 roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+            }
+            else if (Mathf.Abs(zRotation[2]) > 100)
+            {
+                Debug.LogError(zRotation[2]);
+                zRotation[2] = Mathf.Lerp(zRotation[2], 0, velocityLerp * Time.deltaTime);
+
+                roulette2.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+                roulette2Collider.transform.Rotate(0, 0, zRotation[2] * Time.deltaTime, Space.World);
+
             }
             else
             {
@@ -448,7 +476,7 @@ public class RouletteRotator : MonoBehaviour
                 {
                     allColliders[2, i].enabled = false;
                 }
-                Debug.LogWarning("roulette 2 = " + nums[2]);
+                // Debug.LogWarning("roulette 2 = " + nums[2]);
 
             }
             if (timer[3] > 0)
@@ -464,6 +492,15 @@ public class RouletteRotator : MonoBehaviour
                 }
                 roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
                 roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+            }
+            else if (Mathf.Abs(zRotation[3]) > 100)
+            {
+                Debug.LogError(zRotation[3]);
+                zRotation[3] = Mathf.Lerp(zRotation[3], 0, velocityLerp * Time.deltaTime);
+
+                roulette3.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+                roulette3Collider.transform.Rotate(0, 0, zRotation[3] * Time.deltaTime, Space.World);
+
             }
             else
             {
@@ -482,7 +519,7 @@ public class RouletteRotator : MonoBehaviour
                 {
                     allColliders[3, i].enabled = false;
                 }
-                Debug.LogWarning("roulette 3 = " + nums[3]);
+                // Debug.LogWarning("roulette 3 = " + nums[3]);
 
             }
 
